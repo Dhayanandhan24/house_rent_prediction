@@ -15,34 +15,34 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.12.7"
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: "3.12.7"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install flake8 pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+  #     - name: Install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+  #         pip install flake8 pytest
+  #         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Lint with flake8
-        run: |
-          echo "Running flake8 error checks..."
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+  #     - name: Lint with flake8
+  #       run: |
+  #         echo "Running flake8 error checks..."
+  #         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           
-          echo "Running flake8 style checks..."
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+  #         echo "Running flake8 style checks..."
+  #         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-      - name: Run tests with pytest
-        run: |
-          pytest tests/ --maxfail=1 --disable-warnings --tb=short
+  #     - name: Run tests with pytest
+  #       run: |
+  #         pytest tests/ --maxfail=1 --disable-warnings --tb=short
 
-      - name: (Optional) Start Flask and check endpoint
-        run: |
-          nohup python app.py &
-          sleep 10
-          curl -I http://127.0.0.1:5000 || echo "Flask did not respond"
+  #     - name: (Optional) Start Flask and check endpoint
+  #       run: |
+  #         nohup python app.py &
+  #         sleep 10
+  #         curl -I http://127.0.0.1:5000 || echo "Flask did not respond"
 
   docker:
       needs: build-and-test

@@ -1,2 +1,1 @@
 # jenkins_practise
-trigger

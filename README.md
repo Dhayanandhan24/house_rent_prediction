@@ -1,1 +1,2 @@
 # jenkins_practise
+trigger

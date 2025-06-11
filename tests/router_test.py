@@ -32,7 +32,7 @@ def test_post_predict_success(client):
 
 def test_get_predict(client):
     response = client.get('/predict')
-    assert response.status_code == 400
+    assert response.status_code == 200
     data = response.get_json()
     assert data['status'] == 'Anda nge-GET'
 

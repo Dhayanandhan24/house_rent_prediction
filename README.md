@@ -1,2 +1,2 @@
 # jenkins_practise
-Practise project for jenkins docker.
+Practise project for jenkins , github actions, docker 
